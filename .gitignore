@@ -1,0 +1,88 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environnements virtuels
+venv/
+.venv/
+env/
+ENV/
+
+# Fichiers Python compilés
+*.so
+
+# =========================
+# IDE et éditeurs
+# =========================
+.vscode/
+.idea/
+*.swp
+
+# =========================
+# Jupyter Notebook
+# =========================
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# =========================
+# Dataset
+# =========================
+dataset/
+datasets/
+data/
+eurecom-aml-2021-challenge-2/
+*.csv
+*.xlsx
+*.parquet
+*.json
+*.jsonl
+*.zip
+*.tar
+*.gz
+
+# =========================
+# Machine Learning
+# =========================
+models/
+checkpoints/
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.pt
+*.pth
+*.onnx
+
+# =========================
+# Logs et fichiers temporaires
+# =========================
+*.log
+logs/
+tmp/
+temp/
+
+# =========================
+# Configuration locale
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Build et distribution
+# =========================
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
