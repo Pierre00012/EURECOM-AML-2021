@@ -37,27 +37,30 @@ jobs:
           python -c "import six; print('six installed:', six.__version__)"
           kaggle --version
 
-      # 4. Configuration des identifiants Kaggle
-      - name: Configure Kaggle credentials
+      
+      # 4. Configuration du token Kaggle
+      - name: Configure Kaggle authentication
         env:
-          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
-          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
         run: |
-          mkdir -p ~/.kaggle
+          if [ -z "$KAGGLE_API_TOKEN" ]; then
+            echo "KAGGLE_API_TOKEN is missing"
+            exit 1
+          fi
+          echo "Kaggle token configured"
 
-          echo "{\"username\":\"$KAGGLE_USERNAME\",\"key\":\"$KAGGLE_KEY\"}" \
-            > ~/.kaggle/kaggle.json
-
-          chmod 600 ~/.kaggle/kaggle.json
-
-      # 5. Vérification des identifiants
+      # 5. Vérification de l'authentification
       - name: Verify Kaggle authentication
+        env:
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
         run: |
           kaggle competitions list
 
-      # 6. Envoi et lancement du notebook Kaggle
+      # 6. Envoi et lancement du notebook
       - name: Submit notebook to Kaggle
         env:
           GIT_SHA: ${{ github.sha }}
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
         run: |
           python kaggle/runner.py
+
