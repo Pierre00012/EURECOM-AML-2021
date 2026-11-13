@@ -12,6 +12,7 @@ import torch
 import torch.nn as nn
 import wandb
 
+
 from sklearn.metrics import (
     accuracy_score,
     precision_score,
@@ -36,6 +37,7 @@ api_key = os.environ.get("WANDB_API_KEY")
 
 if api_key:
     wandb.login(key=api_key)
+    print("W&B authentication successful!")
 else:
     raise RuntimeError("WANDB_API_KEY missing")
 

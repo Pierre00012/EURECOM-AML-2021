@@ -28,12 +28,7 @@ from torchvision import transforms
 from transformers import SegformerModel
 
 
-api_key = os.environ.get("WANDB_API_KEY")
 
-if api_key:
-    wandb.login(key=api_key)
-else:
-    raise RuntimeError("WANDB_API_KEY missing")
 
 # ============================================================
 # 1. DATASET
