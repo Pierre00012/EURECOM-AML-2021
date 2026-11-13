@@ -102,7 +102,22 @@ if torch.cuda.is_available():
 run = wandb.init(
     project="glaucoma-detection",
     name="segformer-b0-multimodal",
-    config=CONFIG,
+    config={
+        **CONFIG,
+
+        # Configuration matérielle
+        "device": str(device),
+        "gpu_name": (
+            torch.cuda.get_device_name(0)
+            if torch.cuda.is_available()
+            else "CPU"
+        ),
+        "gpu_count": torch.cuda.device_count(),
+
+        # Framework
+        "pytorch_version": torch.__version__,
+        "cuda_version": torch.version.cuda
+    },
     mode="online"
 )
 model = create_model(device)
@@ -136,6 +151,7 @@ print("Validation samples:", len(val_loader.dataset))
 # ============================================================
 
 model = create_model(device)
+print("Device utilisé :", next(model.parameters()).device)
 
 criterion = get_loss_function(
     CONFIG["root_dir"],
