@@ -103,6 +103,7 @@ if torch.cuda.is_available():
 
 run = wandb.init(
     project="glaucoma-detection",
+    entity="assagnon-kouma",
     name="segformer-b0-multimodal",
     config={
         **CONFIG,
