@@ -1,13 +1,13 @@
 {
-  "id": "pierrekouma/mlops-glaucoma-train",
-  "title": "mlops-glaucoma-train",
-  "code_file": "runner.py",
+  "id": "pierrekouma/classification-glaucome",
+  "title": "classification-glaucome",
+  "code_file": "classification-glaucome.ipynb",
   "language": "python",
-  "kernel_type": "script",
-  "is_private": "true",
-  "enable_gpu": "true",
-  "enable_internet": "true",
-  "competition_sources": ["eurecom-aml-2021-challenge-2"],
-  "dataset_sources": [],
-  "kernel_sources": []
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "competition_sources": [
+    "eurecom-aml-2021-challenge-2"
+  ]
 }
