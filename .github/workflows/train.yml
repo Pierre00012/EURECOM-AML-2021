@@ -1,0 +1,59 @@
+
+name: Glaucoma Classification - Kaggle Training
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  train:
+    name: Run Kaggle Notebook
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # 1. Récupération du dépôt GitHub
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # 2. Installation de Python
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # 3. Installation de Kaggle CLI
+      - name: Install Kaggle CLI
+        run: |
+          python -m pip install --upgrade pip
+          pip install kaggle
+
+      # 4. Configuration des identifiants Kaggle
+      - name: Configure Kaggle credentials
+        env:
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+        run: |
+          mkdir -p ~/.kaggle
+
+          echo "{\"username\":\"$KAGGLE_USERNAME\",\"key\":\"$KAGGLE_KEY\"}" \
+            > ~/.kaggle/kaggle.json
+
+          chmod 600 ~/.kaggle/kaggle.json
+
+      # 5. Vérification des identifiants
+      - name: Verify Kaggle authentication
+        run: |
+          kaggle competitions list
+
+      # 6. Envoi et lancement du notebook Kaggle
+      - name: Submit notebook to Kaggle
+        env:
+          GIT_SHA: ${{ github.sha }}
+        run: |
+          python kaggle/runner.py
