@@ -62,5 +62,5 @@ jobs:
           GIT_SHA: ${{ github.sha }}
           KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
         run: |
-          python kaggle/runner.py
+          python kaggle_kernel/runner.py
 
