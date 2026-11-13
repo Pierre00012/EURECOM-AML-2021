@@ -41,7 +41,7 @@ from torchvision import transforms
 # CONFIGURATION
 # ============================================================
 
-ROOT_DIR = "/kaggle/input/eurecom-aml-2021-challenge-2/refuge_data"
+ROOT_DIR = "/kaggle/input/eurecom-aml-2021-challenge-2/refuge_data/refuge_data"
 
 MODEL_PATH = (
     "/kaggle/working/checkpoints/best_model.pth"

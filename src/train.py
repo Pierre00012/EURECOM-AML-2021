@@ -42,7 +42,7 @@ else:
     raise RuntimeError("WANDB_API_KEY missing")
 
 CONFIG = {
-    "root_dir": "/kaggle/input/eurecom-aml-2021-challenge-2/refuge_data",
+    "root_dir": "/kaggle/input/eurecom-aml-2021-challenge-2/refuge_data/refuge_data",
     "batch_size": 8,
     "epochs": 40,
     "learning_rate": 1e-4,
