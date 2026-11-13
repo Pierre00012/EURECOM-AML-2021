@@ -11,7 +11,7 @@ from pathlib import Path
 # ==================================================
 
 ROOT = Path(__file__).resolve().parents[1]
-KAGGLE_DIR = ROOT / "kaggle"
+KAGGLE_DIR = ROOT / "kaggle_kernel"
 
 NOTEBOOK_NAME = "classification-glaucome.ipynb"
 METADATA_NAME = "kernel-metadata.json"
