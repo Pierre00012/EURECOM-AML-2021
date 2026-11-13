@@ -1,0 +1,13 @@
+{
+  "id": "pierrekouma/mlops-glaucoma-train",
+  "title": "mlops-glaucoma-train",
+  "code_file": "runner.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_internet": "true",
+  "competition_sources": ["eurecom-aml-2021-challenge-2"],
+  "dataset_sources": [],
+  "kernel_sources": []
+}
